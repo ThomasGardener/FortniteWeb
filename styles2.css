@@ -1,0 +1,1098 @@
+/*  Base Styles*/
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  width: 100%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
+}
+
+header {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 7px 0px;
+  width: 100%;
+  position: fixed;
+	background: #fff;
+	box-shadow: 0 1px 4px rgba(0,0,0,.1);
+  text-align: center;
+  color: #666;
+  margin-bottom: 10px;
+  overflow: hidden;
+  padding-top: 15px;
+  z-index: 7;
+}
+
+
+h1, h2, h3, h4 {
+  font-family: "montserrat", "Arial", sans-serif;
+}
+
+h1 {
+ font-size: 44px;
+ font-family: "burbank";
+margin-top: 0;
+color: #C41A1A;
+}
+
+h2 {
+
+}
+
+h3 {
+  font-size: 22px;
+
+}
+footer {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #262626;
+  color: #fff;
+  margin-top: -5px;
+  margin-bottom: 0;
+}
+
+p {
+  color: #666;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+li {
+  color: #666;
+  padding-bottom: 9px;
+  padding-top: 5px;
+  font-size: 1rem;
+}
+
+.infoSection li:last-child {
+  padding-bottom: 2px;
+}
+
+button {
+  font-family: "montserrat", "Roboto", "Helvetica", "Arial", sans-serif;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  /* border: 1px solid #FFF; */
+  background-color: rgba(0, 0, 0, 0);
+  color: #FFF;
+  font-size: 18px;
+}
+
+.carbideButton, .omegaButton {
+  display: inline-block;
+  font-family: "montserrat", "Roboto", "Helvetica", "Arial", sans-serif;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  /* border: 1px solid #FFF; */
+  background-color: rgba(0, 0, 0, 0);
+  color: #FFF;
+  font-size: 18px;
+  padding-top: 8px;
+  font-weight: normal;
+}
+
+.omegaButton {
+  background-color: #DF5141;
+}
+/*
+button:hover {
+  cursor: pointer;
+  border: 1px solid #fff;
+} */
+
+.carbideButton:hover {
+  background-color: #3d75af;
+}
+
+.omegaButton:hover {
+  background-color: #ba4134;
+}
+
+.blue {
+  color: #4C91DA;
+}
+
+.red {
+    color: #DF5141;
+}
+
+.main-text .carbideButton
+{
+  margin-right: 20px;
+}
+
+.carbideButton {
+    background-color: #4C91DA;
+}
+
+
+#aboutMe .posterImg {
+  height: 640px;
+}
+
+#faqSection a, nav a {
+  color: #666666;
+}
+
+#faqSection a:visited ,nav a:visited {
+  color: #666666;
+}
+
+#faqSection a:hover, nav a:hover {
+  color: #C41A1A;
+
+}
+
+#faqSection a:active, nav a:active {
+  color: #666666;
+}
+
+#faqSection a, nav a{
+  font-weight: bold;
+  text-decoration: none;
+  transition-property: color;
+  transition-duration: 0.4s;
+}
+
+
+.main-pic {
+  height: 700px;
+  width: 100%;
+  background-image: url("fortnite.jpg");
+  background-position: center;
+  background-size: cover;
+
+}
+
+
+.main-content {
+  position: relative;
+}
+
+
+
+.main-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 300px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.main-text h1 {
+  color: #fff;
+  font-size: 70px;
+}
+
+#mainPic {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.contactBackground {
+  height: 400px;
+  width: 100%;
+  background-image: url("fortniteBanner.jpg");
+  background-position: center;
+  background-size: cover;
+  margin-top: -20px;
+
+}
+
+
+#Interested {
+  position: relative;
+  overflow: hidden;
+
+}
+
+#Interested .contactText {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 400px;
+  font-size: 1.6em;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 10px rgba(0,0,0,.3)
+
+}
+
+.contactText .container940 {
+  padding-top: 80px;
+  color: #fff;
+}
+
+.contactText .container940 p {
+  color: #fff;
+  font-size: 0.9em;
+
+}
+
+.contactText h2, .contactText h4 {
+  font-family: "montserrat", "sans-serif";
+  color: #fff;
+}
+
+.contactText h2 {
+  font-size: 38px;
+}
+
+.contactText h4 {
+  font-size: 24px;
+}
+
+
+
+
+.contactIcons {
+  height: 70px;
+  width: 100px;
+}
+
+.contactIcons:hover {
+  height: 80px;
+  width: 110px;
+}
+
+#Interested .discord p , #Interested .skype p{
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: top;
+  padding-top: 20px;
+  font-size: 1rem;
+}
+
+#Interested .container940 {
+  padding-top: 50px;
+}
+
+#Interested h2 {
+  font-family: "burbank";
+  font-size: 2.6em;
+}
+
+#Interested h4 {
+  font-family: "burbank";
+  font-size: 1.4em;
+}
+
+
+#faqSection ul li {
+  margin-bottom: 20px;
+}
+
+#services {
+  background-color: rgba(255, 0, 0, 0.01);
+  padding-top: 73px;
+  height: 100%;
+
+}
+
+#services h2 {
+  color: #C41A1A;
+  margin-top: 50px;
+}
+
+#priceVal {
+  font-weight: bold;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.priceContainer p {
+  color: #C41A1A;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.customCentre {
+  padding-top: 12px;
+}
+
+.contactText h2 {
+  margin-top: 0;
+}
+
+.timeIcon {
+  height: 25px;
+  width: 25px;
+}
+
+
+.buttomSection p::before {
+  content: url("Icons/time.png");
+  height: 25px;
+  width: 25px;
+  padding-right: 5px;
+  position: relative;
+  top: 4px;
+}
+
+/*  Font stuff */
+
+@font-face {
+  font-family: "bebas";
+  src: url("Fonts/BEBAS___.ttf");
+}
+
+@font-face {
+  font-family: "montserratBold";
+  src: url("Fonts/montserrat.bold.ttf");
+}
+
+@font-face
+{
+  font-family: "Roboto";
+  src: url("Fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("Fonts/montserrat.regular.ttf");
+}
+
+@font-face {
+  font-family: "burbank";
+  src: url("Fonts/BurbankBigCondensed-Black.otf") format("opentype");
+}
+
+
+/* .backr {
+  width: 100%;
+} */
+.container {
+  width: 80%;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+.blurbIcon .Icon
+{
+  height: 35px;
+  width: 35px;
+}
+
+.blurbIcon
+{
+  float: left;
+  margin-right: 20px;
+  display: inline-block;
+  height: 100px;
+  padding-top: 2px;
+
+}
+
+.blurbSec
+{
+  margin-bottom: 30px;
+}
+
+.blurbSec p
+{
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.logo {
+  width: 48px;
+  height: 62px;
+}
+
+
+
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+nav ul {
+  margin-top: 5px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+nav ul li:last-child{
+  margin-right: 0;
+}
+
+/* Col shit */
+.infoSegment {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container940 {
+  max-width: 1480px;
+  margin: auto;
+}
+
+.infoSegment h2 {
+  margin-bottom: 50px;
+}
+.infoSegment h3 {
+  color: #C41A1A;
+  margin-bottom: 0;
+
+}
+
+
+#faqSection {
+  text-align: left;
+}
+
+.question {
+  border: 1px solid #d2d2d2;
+  display: block;
+  padding: 20px 60px 20px 30px;
+}
+
+ .question p {
+   padding-left: 5px;
+ }
+
+#Testimonals {
+  background-color: #F5F5F5;
+  color: #C41A1A;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+  padding-top: 20px;
+}
+
+ .four .col {
+  width: 25%;
+  float: left;
+}
+
+.stars {
+  margin: auto;
+  width: 160px;
+  height: 33px;
+  background-image: url("Icons/star.png");
+}
+
+.two .col {
+  width: 50%;
+  float: left;
+}
+
+.three .col {
+  width: 33%;
+  float: left;
+}
+
+.middleImage .col {
+  width: 40%;
+  float: left;
+}
+
+#services p {
+  margin-top: 10px;
+}
+
+#aboutMe .primary {
+  padding-left: 45px;
+  text-align: left;
+  padding-top: 35px;
+}
+
+#aboutMe
+{
+  box-sizing: border-box;
+  max-height: 800px;
+}
+
+#Testimonals h3 {
+  margin-bottom: 20px;
+}
+.whiteSpace {
+  width: 100%;
+  height: 450px;
+  background-image: url("fortniteBanner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.whiteSpace .textSeg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.whiteSpace .textSeg h1  {
+position: absolute;
+left: 50%;
+top: 57%;
+margin-left: -300px;
+color: #fff;
+text-align: center;
+}
+
+.carbide, .omega{
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+
+}
+
+.omegaPic {
+  height: 555px;
+}
+
+#packages
+{
+
+  margin-top: 0;
+  height: 600px;
+
+}
+
+#packages .testBack
+{
+  position: absolute;
+  width: 100%;
+  height: 585px;
+  background-image: url("fortnitelong.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+}
+
+#packages .testText
+{
+  position: absolute;
+  width: 100%;
+  height: 585px;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#packages h1
+{
+  padding-top: 20px;
+  color: #fff;
+}
+
+.carbide, .omega {
+  border: none;
+  border-radius: 2px;
+  background-color: #fff;
+  /* padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px; */
+  /* box-shadow: 0px 3px 15px rgba(0,0,0,0.2); */
+
+
+}
+
+.omega .topSection
+{
+  background-color: #DF5141;
+  color: #fff;
+}
+
+.carbide .topSection
+{
+  background-color: #4C91DA;
+  color: #fff;
+}
+.carbide h2, .omega h2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.carbide .infoSection, .omega .infoSection {
+ padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+
+.divider {
+  border-top: 1px solid #000;
+  height: 1px;
+  display: block;
+}
+
+.carbide {
+  float: left;
+
+}
+
+.omega {
+  float: left;
+  margin-right: 150px;
+}
+
+
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2)
+}
+
+.iconContainer
+{
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+
+.textContainer
+{
+  width: 80%;
+  float: right;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 35px;
+}
+
+.textContainer h3
+{
+ margin-top: 0;
+}
+
+.priceSection {
+  font-weight: bold;
+  padding-top: 15px;
+  font-size: 23px;
+}
+
+.buttomSection {
+  padding-bottom: 20px;
+}
+
+.buttomSection p {
+  margin-top: 0;
+}
+
+.carbide .buttomSection a {
+  border: none;
+  color: #FFF;
+  background-color: #4C91DA;
+}
+
+.omega .buttomSection a {
+  border: none;
+  color: #FFF;
+  background-color: #DF5141;
+}
+
+.currencyTop {
+  font-size: 0.7em;
+  vertical-align: top;
+  padding-right: 2px;
+}
+
+#Testimonals p
+{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/*  FAQ SECTION */
+
+#faqSection a:hover {
+  cursor: pointer;
+}
+
+#faqSection a::after {
+  content: url("Icons/Down.svg");
+  width: 15px;
+  height: 15px;
+  float: right;
+}
+
+#faqSection .question p {
+  display: none;
+}
+
+#faqSection div {
+  margin-bottom: 60px;
+}
+
+#faqSection h2 {
+  color: #C41A1A;
+}
+
+#faqSection .container940 {
+  width: 80%;
+  margin: auto;
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width:1200px) {
+
+ #packages .col {
+   float: none;
+   margin: auto;
+ }
+
+ #packages .primary {
+   width: 0;
+ }
+
+ #packages .secondary {
+   width: 50%;
+ }
+ #packages {
+   padding-bottom: 30px;
+
+ }
+
+
+#services .primary, #services .secondary, #services .tertiary, #services .quarterly {
+  width: 50%;
+  height: 230px;
+}
+
+#services .tertiary {
+  float: right;
+  padding-top: 20px;
+
+}
+
+#services .quarterly {
+  float: right;
+  padding-top: 20px;
+
+}
+
+ .omega {
+   float: left;
+   margin-right: 0;
+ }
+
+ .carbide {
+   float: right;
+
+ }
+
+ .omegaPic {
+   height: 75%;
+   width: 75%;
+   display: none;
+ }
+
+ #aboutMe .primary {
+   width: 70%;
+ }
+
+ #aboutMe .secondary {
+   width: 30%;
+   overflow: hidden;
+ }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+   #packages .col {
+     float: none;
+     margin: auto;
+     width: 70%;
+   }
+   #packages {
+     padding-bottom: 30px;
+
+   }
+
+   .omega {
+     float: left;
+     margin-right: 0;
+   }
+
+   .carbide {
+     float: right;
+   }
+
+   .omegaPic {
+     height: 75%;
+     width: 75%;
+     display: none;
+   }
+
+   #aboutMe .primary {
+     width: 70%;
+   }
+
+   #aboutMe .secondary {
+     width: 30%;
+   }
+
+  }
+
+  @media screen and (max-width: 800px)
+  {
+    #Testimonals .col {
+      width: 100%;
+    }
+
+    .poster {
+      display: none;
+    }
+
+    #aboutMe .primary {
+      width: 100%;
+      padding-right: 30px;
+    }
+
+    #aboutMe {
+      max-height: none;
+    }
+  }
+
+  @media screen and (max-width: 700px)
+  {
+    #services .primary, #services .secondary, #services .tertiary, #services .quarterly {
+      width: 100%;
+      height: auto;
+    }
+
+    #services .primary {
+      padding-bottom: 20px;
+    }
+
+    #aboutMe .primary
+    {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 0;
+
+    }
+
+    .blurbIcon {
+      height: auto;
+    }
+
+    .mainheader {
+      position: inherit;
+    }
+
+    .main-text {
+      padding-top: 60px;
+      height: 300px;
+    }
+
+    .main-pic {
+      height: 300px;
+    }
+
+    #services h2 {
+      margin-top: 0px;
+    }
+
+    footer span {
+      font-size: 0.7rem;
+    }
+
+    /*  FAQ */
+    .whiteSpace {
+       height: 300px;
+    }
+
+
+    .whiteSpace .textSeg h1  {
+    left: 0;
+    top: 27%;
+    margin-left: 0;
+    }
+
+
+  }
+
+  @media screen and (max-width: 620px) {
+
+     #packages .col {
+       float: none;
+       margin: auto;
+       width: 460px;
+     }
+     #packages {
+       padding-bottom: 30px;
+
+     }
+
+
+     .omega {
+       float: left;
+       margin-right: 0;
+       background-color: #fff;
+     }
+
+     .carbide {
+       float: left;
+       margin-left: 20px;
+       background-color: #fff;
+     }
+
+     .omegaPic {
+       height: 75%;
+       width: 75%;
+       display: none;
+     }
+
+       /*  FAQ Section */
+
+       #faqSection .container940
+       {
+         width: 100%;
+         padding-left: 10px;
+         padding-right: 10px;
+       }
+
+    }
+
+
+
+    @media screen and (max-width: 460px) {
+      #packages .infoSection {
+        padding-left: 3px;
+        padding-right: 3px;
+      }
+
+      .carbide {
+        margin-left: 5px;
+      }
+
+      .omega {
+        padding-left: 5px;
+      }
+
+      #packages.infoSection {
+        width: auto;
+      }
+
+
+      #packages li {
+        padding-top: 1px;
+      }
+      .main-text {
+        padding-top: 60px;
+        height: 400px;
+      }
+
+      .main-pic {
+        height: 400px;
+      }
+    }
+
+    @media screen and (max-width: 400px)
+    {
+      .whiteSpace .textSeg h1  {
+      top: 20%;
+      }
+
+    }
+/*  PARALLAX*/
+/*
+.parallax {
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.backLay {
+  display: flex;
+  flex: 1 0 auto;
+  position: relative;
+  height: 100vh;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+}
+
+.frontLay {
+  display: block;
+  position: relative;
+  background-color: white;
+  z-index: 1;
+} */
+/* .parallax backLay {
+  position: relative;
+} */
+
+/* Clear fix */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*  Review OUT OF DATE CODE */
+/*
+.singlereview {
+  width: 45%;
+}
+
+.singlereview h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.reviewer {
+  padding-left: 20px
+}
+
+.singlereview p:first-child {
+  border: 2px solid #e5e5e5;
+  border-radius: 3px;
+  padding: 30px;
+  background-color: #e5e5e5;
+  max-width: 400px;
+
+
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  float: left;
+  background-image: url("polar-avatar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 4px solid #C41A1A;
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-top: -30px;
+} */
