@@ -13,7 +13,8 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <!-- <li><a href="#">Coaching</a></li> -->
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Prices</a></li>
+          <li><a href="FAQ.html">FAQ</a></li>
         </ul>
       </nav>
     </header>
@@ -53,7 +54,7 @@
               <span><b>QUEUE TYPE</b></span>
               <div class="addLeftRight">
                 <img class="leftArrow" src="Icons/leftArrow.svg">
-                <img class="typeIcon" src="Icons/squads2.svg">
+                <img class="typeIcon" id="queueTypeImage" src="Icons/solo.svg">
                 <img class="rightArrow" src="Icons/rightArrow.svg">
               </div>
               <span class="flexbottom">Squads</span>
@@ -61,8 +62,9 @@
             <div class="amountWins winsFlex">
               <span><b>AMOUNT OF WINS</b></span>
               <div class="rangeField flexCenter">
-              <input type="range" id="range" min="1" max="100">
-
+              <input type="range" id="range" min="1" max="25" value="1">
+              <div class="rangeAmountDisplay" id="rangeDisplay">
+              </div>
               </div>
               <span class="flexbottom"></span>
             </div>
@@ -82,7 +84,7 @@
             <div class="selfPlay">
             <span>Self Play (+30%)</span>
             <label class="extraSwitch">
-              <input type="checkbox">
+              <input type="checkbox" id="selfPlaySwitch">
               <span class="extraSlider extraRound"></span>
             </label>
             </div>
@@ -118,21 +120,25 @@
           <div class="priceBorderGroup">
             <div class="summaryPrice">
             <span>Price: </span>
-            <span class="endFlex">£35</span>
+            <span class="endFlex" id="summaryPrice">£35</span>
             </div>
             <div class="summaryDiscount">
             <span>Discount: </span>
-            <span class="endFlex">15%</span>
+            <span class="endFlex" id="summaryDiscount">0%</span>
+            </div>
+            <div class="summaryExtras">
+              <span>Extras: </span>
+              <span class="endFlex" id="summaryExtras">0%</span>
             </div>
             <div class="priceDivider">
             </div>
             <div class="summaryTotalPrice">
             <span><b>Total Price: </b></span>
-            <span class="endFlex">£70</span>
+            <span class="endFlex" id="totalPrice">£70</span>
             </div>
             <div class="estimatedTime">
               <span>Estimated time: </span>
-              <span class="endFlex">15 hours</span>
+              <span class="endFlex" id="estimatedTime">15 hours</span>
             </div>
             <div class="priceDivider">
             </div>
@@ -162,6 +168,8 @@
 
 
     <!--  -->
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="Prices.js"></script>
 
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -174,5 +182,7 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
     </script>
+
+
   </body>
   </html>

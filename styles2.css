@@ -64,8 +64,6 @@ a {
   text-decoration: none;
 }
 
-
-
 li {
   color: #666;
   padding-bottom: 9px;
@@ -73,8 +71,12 @@ li {
   font-size: 1rem;
 }
 
-.infoSection li:last-child {
-  padding-bottom: 2px;
+.blue {
+  color: #4C91DA;
+}
+
+.red {
+    color: #DF5141;
 }
 
 button {
@@ -87,6 +89,100 @@ button {
   background-color: rgba(0, 0, 0, 0);
   color: #FFF;
   font-size: 18px;
+}
+
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+/* Containers Main Styles */
+
+.container {
+  width: 80%;
+}
+
+.infoSegment {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.container940 {
+  max-width: 1480px;
+  margin: auto;
+}
+
+
+.infoSegment h2 {
+  margin-bottom: 50px;
+}
+.infoSegment h3 {
+  color: #C41A1A;
+  margin-bottom: 0;
+
+}
+
+.two .col {
+  width: 50%;
+  float: left;
+}
+
+.three .col {
+  width: 33%;
+  float: left;
+}
+
+.middleImage .col {
+  width: 40%;
+  float: left;
+}
+
+
+ .four .col {
+  width: 25%;
+  float: left;
+}
+
+
+ /* Header */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main header */
+
+
+.main-text .carbideButton
+{
+  margin-right: 20px;
 }
 
 .carbideButton, .omegaButton {
@@ -113,6 +209,12 @@ button:hover {
   border: 1px solid #fff;
 } */
 
+.carbideButton {
+    background-color: #4C91DA;
+}
+
+
+
 .carbideButton:hover {
   background-color: #3d75af;
 }
@@ -121,22 +223,52 @@ button:hover {
   background-color: #ba4134;
 }
 
-.blue {
-  color: #4C91DA;
+.main-pic {
+  height: 700px;
+  width: 100%;
+  background-image: url("fortnite.jpg");
+  background-position: center;
+  background-size: cover;
+
 }
 
-.red {
-    color: #DF5141;
+.main-content {
+  position: relative;
 }
 
-.main-text .carbideButton
-{
-  margin-right: 20px;
+.main-text {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 300px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,0,0,.3);
 }
 
-.carbideButton {
-    background-color: #4C91DA;
+.main-text h1 {
+  color: #fff;
+  font-size: 70px;
 }
+
+#mainPic {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+
+
+
+
+.infoSection li:last-child {
+  padding-bottom: 2px;
+}
+
+
+
 
 
 #aboutMe .posterImg {
@@ -167,45 +299,6 @@ button:hover {
   transition-duration: 0.4s;
 }
 
-
-.main-pic {
-  height: 700px;
-  width: 100%;
-  background-image: url("fortnite.jpg");
-  background-position: center;
-  background-size: cover;
-
-}
-
-
-.main-content {
-  position: relative;
-}
-
-
-
-.main-text {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-top: 300px;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0,0,0,.3);
-}
-
-.main-text h1 {
-  color: #fff;
-  font-size: 70px;
-}
-
-#mainPic {
-  max-height: 500px;
-  overflow: hidden;
-}
 
 .contactBackground {
   height: 400px;
@@ -381,9 +474,13 @@ button:hover {
 /* .backr {
   width: 100%;
 } */
-.container {
-  width: 80%;
-}
+
+/*  Containers */
+
+
+
+
+
 .icon {
   width: 60px;
   height: 60px;
@@ -423,12 +520,6 @@ button:hover {
 
 
 
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
 nav ul {
   margin-top: 5px;
 }
@@ -443,26 +534,6 @@ nav ul li:last-child{
 }
 
 /* Col shit */
-.infoSegment {
-  width: 100%;
-  background-color: #fff;
-  text-align: center;
-  padding-top: 20px;
-}
-
-.container940 {
-  max-width: 1480px;
-  margin: auto;
-}
-
-.infoSegment h2 {
-  margin-bottom: 50px;
-}
-.infoSegment h3 {
-  color: #C41A1A;
-  margin-bottom: 0;
-
-}
 
 
 #faqSection {
@@ -486,11 +557,6 @@ nav ul li:last-child{
   padding-top: 20px;
 }
 
- .four .col {
-  width: 25%;
-  float: left;
-}
-
 .stars {
   margin: auto;
   width: 160px;
@@ -498,20 +564,6 @@ nav ul li:last-child{
   background-image: url("Icons/star.png");
 }
 
-.two .col {
-  width: 50%;
-  float: left;
-}
-
-.three .col {
-  width: 33%;
-  float: left;
-}
-
-.middleImage .col {
-  width: 40%;
-  float: left;
-}
 
 #services p {
   margin-top: 10px;
@@ -822,6 +874,7 @@ text-align: center;
    overflow: hidden;
  }
 
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -1096,3 +1149,552 @@ text-align: center;
   margin-right: 8px;
   margin-top: -30px;
 } */
+
+button:focus {
+  outline:0;
+}
+
+
+.pricesBG {
+  display: flex;
+  width: 100vw;
+  background-image: url("fortnite.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  padding-top: 137px;
+  flex-direction: column;
+}
+
+.prices {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  text-align: center;
+  padding-top: 20px;
+  background-color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 40px;
+
+
+}
+
+.prices span {
+  font-family: "montserrat", "Arial", sans-serif;
+  font-size: 18px;
+}
+
+.pricesBG footer {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.pricesBG h1{
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    color: #fff;
+    opacity: 0;
+}
+
+
+.pricesSelection {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+
+}
+
+
+
+
+.pricesCalculator {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pricesExtras {
+  flex-grow: 1;
+  width: 200px;
+}
+
+.pricesSelection .selection {
+  flex: 1 minmax(100px, 800px);
+
+}
+
+.pricesSelection button {
+  color: #666;
+  border: 1px solid #ebebeb;
+  margin-bottom: 25px;
+
+}
+
+
+
+
+
+.pricesSelection button:last-child {
+}
+
+.pricesSelection button:hover {
+  color: #fff;
+  background-color: #C41A1A;
+  cursor: pointer;
+}
+
+
+#buttonSelected {
+  color: #fff;
+  background-color: #C41A1A;
+  position: relative;
+}
+
+#buttonSelected::after {
+  top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(196, 26, 26, 0);
+	border-top-color: #C41A1A;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+
+.winsSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 600px;
+  flex-grow: 2;
+
+}
+
+.winsFlex {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 200px;
+
+
+}
+
+
+.flexbottom {
+  margin-top: auto;
+}
+
+.flexCenter {
+  margin: auto;
+
+}
+.addLeftRight {
+  align-self: center;
+  display: flex;
+  justify-content:center;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.typeIcon {
+  height: 120px;
+  width: 120px;
+}
+
+.rightArrow, .leftArrow {
+  margin-top: auto;
+  width: 20px;
+  height: 20px;
+  margin-bottom: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.rightArrow:hover, .leftArrow:hover {
+  cursor: pointer;
+}
+
+.rangeField {
+  width: 80%;
+  height: 40px;
+}
+
+#range {
+  width: 100%;
+}
+
+.prices h2 {
+  width: 100%;
+  text-align: left;
+  color: #C41A1A;
+  font-weight: bold;
+}
+
+.prices h2 span {
+  color: #000;
+  font-size: 1em;
+  display: inline;
+}
+
+.ExtraOptions {
+  text-align: left;
+}
+
+.pricesExtras span {
+  display: block;
+  width: 100%;
+
+}
+
+
+.pricesPriceAndInfo {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.pricesPriceAndInfo h3 {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.pricesPriceAndInfo ul  {
+  padding-left: 20px;
+  list-style-type: square;
+}
+.pricesPriceAndInfo ul li  {
+    color: #C41A1A;
+}
+
+
+
+.pricesPriceAndInfo ul li p {
+  padding: 0;
+  margin: 0;
+  color: #666;
+}
+
+.pricesPriceAndInfo ul li p span {
+  font: inherit;
+  color: #C41A1A;
+}
+
+.actualPrice {
+  flex-grow: 2;
+  width: 600px;
+}
+
+.whatYouGet {
+  flex-grow: 1;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.priceBorderGroup {
+  width: 100%;
+  background-color: #C41A1A;
+  border: 1px solid #C41A1A;
+  color: #fff;
+  border-radius: 3px;
+  padding: 15px;
+  padding-bottom: 5px;
+}
+
+.priceBorderGroup div {
+    margin-bottom: 10px;
+    display: flex;
+    width: 100%;
+}
+
+.endFlex {
+  margin-left: auto;
+}
+
+.priceDivider {
+  height: 2px;
+  background-color: #fff;
+}
+
+.purchase button {
+  background-color: #fff;
+  color: #C41A1A;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+
+
+
+
+
+.dicountCode input {
+  background-color: #efefef;
+  border: none;
+  height: 32px;
+  width: 160px;
+  border-radius: 4px;
+}
+
+.discountButton {
+  height: 32px;
+  width: 65px;
+  background-color: #C41A1A;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  font-size: 16px;
+}
+
+.dicountFlex {
+  display: flex;
+  margin-top: 4px;
+}
+
+input[type="text"]
+{
+  font-family: inherit;
+  color: #666;
+  font-size: 16px;
+  padding: 7px;
+}
+
+
+@media screen and (max-width:1510px) {
+  .pricesExtras {
+    width: 100%;
+  }
+
+
+
+
+}
+
+@media screen and (min-width:1512px) {
+
+  .pricesSelection button {
+    margin-right: 20px;
+
+  }
+
+
+  .pricesSelection button:last-child {
+    margin-right: 0;
+  }
+
+  .pricesSelection button {
+
+    margin-bottom: 0;
+
+  }
+
+
+
+}
+
+@media screen and (max-width:800px) {
+  .winsFlex {
+    padding-bottom: 50px;
+  }
+
+  .amountWins {
+    margin-bottom: 90px;
+  }
+
+  .winsFlex:last-child {
+    margin-bottom: none;
+  }
+
+}
+
+@media screen and (min-width:1200px) {
+
+
+  .prices {
+    width: 65%;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.extraSwitch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 25.5px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* Hide default HTML checkbox */
+.extraSwitch input {
+  display:none;}
+
+/* The slider */
+.extraSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #efefef;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.extraSlider:before {
+  position: absolute;
+  content: "";
+  height: 19.5px;
+  width: 19.5px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.extraSwitch input:checked + .extraSlider {
+  background-color:  #C41A1A;
+}
+
+input:focus + .extraSlider{
+  box-shadow: 0 0 1px  #C41A1A;
+}
+
+input:checked + .extraSlider:before {
+  -webkit-transform: translateX(19.5px);
+  -ms-transform: translateX(19.5px);
+  transform: translateX(19.5px);
+}
+
+/* Rounded sliders */
+.extraRound {
+  border-radius: 34px;
+}
+
+.extraRound:before {
+  border-radius: 50%;
+}
+
+.rangeAmountDisplay {
+  font-size: 25px;
+  width: 50px;
+  height: 35px;
+  background-color: #C41A1A;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type=range] {
+  height: 34px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #DBDBDB;
+  border-radius: 0px;
+  border: 0px solid #8A8A8A;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 1px #828282;
+  border: 0px solid #8A8A8A;
+  height: 28px;
+  width: 18px;
+  border-radius: 3px;
+  background: #C41A1A;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #DBDBDB;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #DBDBDB;
+  border-radius: 0px;
+  border: 0px solid #8A8A8A;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 1px #828282;
+  border: 0px solid #8A8A8A;
+  height: 28px;
+  width: 18px;
+  border-radius: 3px;
+  background: #C41A1A;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #DBDBDB;
+  border: 0px solid #8A8A8A;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #DBDBDB;
+  border: 0px solid #8A8A8A;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 1px #828282;
+  border: 0px solid #8A8A8A;
+  height: 28px;
+  width: 18px;
+  border-radius: 3px;
+  background: #C41A1A;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #DBDBDB;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #DBDBDB;
+}
