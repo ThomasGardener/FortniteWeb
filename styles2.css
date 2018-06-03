@@ -1393,14 +1393,18 @@ button:focus {
 }
 
 .actualPrice {
+  flex-grow: 1;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.whatYouGet {
   flex-grow: 2;
   width: 600px;
 }
 
-.whatYouGet {
-  flex-grow: 1;
-  width: 200px;
-  margin-bottom: 20px;
+.displayNone {
+  display: none;
 }
 
 .priceBorderGroup {
@@ -1526,6 +1530,10 @@ input[type="text"]
   }
 
 
+}
+
+#rangeSelection {
+  display: none;
 }
 
 

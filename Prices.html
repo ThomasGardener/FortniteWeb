@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Frequently Asked Questions</title>
+    <title>Prices</title>
     <link href="styles2.css" rel="stylesheet">
 
   </head>
@@ -27,7 +27,7 @@
       <div class="prices">
 
         <h4>Pick your service!</h4>
-        <div class="pricesSelection">
+        <div class="pricesSelection" id="pricesSelection">
 
             <button class="selection" id="buttonSelected">Wins</button>
 
@@ -50,16 +50,21 @@
         <div class="pricesCalculator">
           <div class="winsSection">
             <h2><span>01</span> How many wins would you like?</h2>
-            <div class="queueType winsFlex">
+            <div class="winsFlex" id="queueType">
               <span><b>QUEUE TYPE</b></span>
-              <div class="addLeftRight">
+              <div class="addLeftRight" id="imageSelection">
                 <img class="leftArrow" src="Icons/leftArrow.svg">
                 <img class="typeIcon" id="queueTypeImage" src="Icons/solo.svg">
                 <img class="rightArrow" src="Icons/rightArrow.svg">
               </div>
-              <span class="flexbottom">Squads</span>
+              <div class="rangeField flexCenter" id="rangeSelection">
+              <input type="range" class="range" min="1" max="99" value="1">
+              <div class="rangeAmountDisplay" id="rangeDisplayStart">
+              </div>
+              </div>
+              <span class="flexbottom" id="queueTypeText">Solo</span>
             </div>
-            <div class="amountWins winsFlex">
+            <div class="amountWins winsFlex" id="valueType">
               <span><b>AMOUNT OF WINS</b></span>
               <div class="rangeField flexCenter">
               <input type="range" id="range" min="1" max="25" value="1">
@@ -101,21 +106,54 @@
         </div>
 
         <div class="pricesPriceAndInfo">
-        <div class="actualPrice">
-          <h2><span>03</span> Fortnite Wins</h2>
+        <div class="whatYouGet">
+          <h2><span>03</span> Details</h2>
           <h3>Information</h3>
+          <div id="whatYouGetInformation">
           <ul>
-            <li><p>If you order <span>5</span> or more wins, you get <span>5%</span> off</p></li>
-            <li><p>You will have the <span>Highest Quality</span> booster on your account (unless self-play is selected)</p></li>
+            <li><p>If you order more than <span>5</span> wins, you get <span>5%</span> off</p></li>
+            <li><p>If you order more than <span>15</span> wins, you get <span>10%</span> off</p></li>
+            <li><p>If you choose not to have selfplay enabled, you will have the <span>Highest Quality</span> booster on your account</p></li>
             <li><p>If you have any questions either contact us on <span>live chat</span> or our discord skype links</p></li>
           </ul>
+          <ul class="displayNone">
+            <li><p>If you order more than <span>100</span> kills, you get <span>5%</span> off</p></li>
+            <li><p>If you order more than <span>200</span> kills, you get <span>10%</span> off</p></li>
+            <li><p>You will have the <span>Highest Quality</span> booster on your account</p></li>
+            <li><p>If you have any questions either contact us on <span>live chat</span> or our discord skype links</p></li>
+          </ul>
+          <ul class="displayNone">
+            <li><p><span>1-65</span> on average takes around <span>70 hours</span></p></li>
+            <li><p><span>65-85</span> on average takes around <span>80 hours</span></p></li>
+            <li><p>You can assume the same rate of <span>wins</span> as in the win section for the same amount of hours, however this is not guaranteed</p></li>
+            <li><p>You will have the <span>Highest Quality</span> booster on your account</p></li>
+            <li><p>If you have any questions either contact us on <span>live chat</span> or our discord skype links</p></li>
+          </ul>
+          <ul class="displayNone">
+            <li><p><span>1-65</span> on average takes around <span>70 hours</span></p></li>
+            <li><p><span>65-85</span> on average takes around <span>80 hours</span></p></li>
+            <li><p>You can assume the same rate of <span>wins</span> as in the win section for the same amount of hours, however this is not guaranteed</p></li>
+            <li><p>You will have the <span>Highest Quality</span> booster on your account</p></li>
+            <li><p>If you have any questions either contact us on <span>live chat</span> or our discord skype links</p></li>
+          </ul>
+          <ul class="displayNone">
+            <li><p>If you order <span>5</span> or more wins, you get <span>5%</span> off</p></li>
+            <li><p>You will have the <span>Highest Quality</span> booster on your account</p></li>
+            <li><p>If you have any questions either contact us on <span>live chat</span> or our discord skype links</p></li>
+          </ul>
+          <ul class="displayNone">
+            <li><p>If you order <span>5</span> or more wins, you get <span>5%</span> off</p></li>
+            <li><p>You will have the <span>Highest Quality</span> booster on your account</p></li>
+            <li><p>If you have any questions either contact us on <span>live chat</span> or our discord skype links</p></li>
+          </ul>
+          </div>
           <h3>Requirements</h3>
           <ul>
             <li><p>A fortnite account</p></li>
           </ul>
 
         </div>
-        <div class="whatYouGet">
+        <div class="actualPrice">
           <h2><span>04</span> Price</h2>
           <div class="priceBorderGroup">
             <div class="summaryPrice">
