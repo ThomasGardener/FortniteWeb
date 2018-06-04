@@ -399,6 +399,7 @@ button:hover {
   background-color: rgba(255, 0, 0, 0.01);
   padding-top: 73px;
   height: 100%;
+  margin-bottom: 70px;
 
 }
 
@@ -1439,7 +1440,9 @@ button:focus {
   margin-top: 5px;
 }
 
-
+#purchaseContact {
+  color: #C41A1A;
+}
 
 
 

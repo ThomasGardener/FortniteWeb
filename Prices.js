@@ -20,7 +20,11 @@ let sliderStartingDisplay = sliderStarting.lastElementChild;
 let title = queueType.parentNode.firstElementChild;
 let information = document.getElementById("whatYouGetInformation");
 
+
+
 sliderStarting.disabled = true;
+
+selfPlaySwitch.disabled = true;
 
 let titleValues = ["How many wins would you like?", "How many kills would you like?", "What level would you like to reach?", "What package would you like?", "How many challenges or dailies to complete?", "How many hours would you like?"];
 
@@ -28,12 +32,12 @@ let field1Values = ["QUEUE TYPE", "QUEUE TYPE", "STARTING LEVEL", "PACKAGE TYPE"
 let field1Types = ["Picture", "RangeBar"];
 
 let field2Values = ["AMOUNT OF WINS", "AMOUNT OF KILLS", "END LEVEL", "STARTING LEVEL", "AMOUNT TO COMPLETE", "AMOUNT OF HOURS"];
-let sliderAttribute = ["25", "500", "100", "84", "10", "30"];
+let sliderAttribute = ["25", "500", "100", "79", "10", "30"];
 
 
 let currentSelection = 0;
 
-let queueTypeOptions = ["Solo", "Duo", "Squad"];
+let queueTypeOptions = ["Solo", "Duo"];
 let packageTypeOptions = ["Omega", "Carbide"];
 let typeToCompleteOptions =["BattlePass", "Dailies"];
 let coaches = ["Tom", "Maz"];
@@ -41,7 +45,6 @@ let coaches = ["Tom", "Maz"];
 let pictureOptions = [queueTypeOptions, queueTypeOptions, "", packageTypeOptions, typeToCompleteOptions, coaches];
 
 let startCounter = 0;
-
 
 
 
@@ -54,11 +57,36 @@ queueLeftArrow.addEventListener("click", () => {
       startCounter = (pictureOptions[currentSelection].length - 1);
     }
     queueTypeText.innerHTML = pictureOptions[currentSelection][startCounter];
-    if (currentSelection === 0 || currentSelection === 1) {
+    if (currentSelection === 0)
+    {
+      if (startCounter === 1)
+      {
+        selfPlaySwitch.disabled = false;
+      }
+      else
+      {
+        selfPlaySwitch.disabled = true;
+      }
+      queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.svg`);
+    }
+    else if (currentSelection === 1)
+    {
     queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.svg`);
     }
-    else
-    {
+    else if (currentSelection === 3) {
+      queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.png`);
+      if (startCounter === 0) {
+      slider.setAttribute("max", "79");
+      slider.value = 1;
+      sliderDisplay.innerHTML = 1;
+      }
+      else {
+      slider.setAttribute("max", "64");
+      slider.value = 1;
+      sliderDisplay.innerHTML = 1;
+      }
+    }
+    else {
       queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.png`);
     }
 })
@@ -71,8 +99,39 @@ queueRightArrow.addEventListener("click", () => {
     startCounter = 0;
   }
   queueTypeText.innerHTML = pictureOptions[currentSelection][startCounter];
-  if (currentSelection === 0 || currentSelection === 1) {
+  if (currentSelection === 0)
+  {
+    if (startCounter === 1)
+    {
+      selfPlaySwitch.disabled = false;
+    }
+    else
+    {
+      selfPlaySwitch.disabled = true;
+      selfPlaySwitch.checked = false;
+    }
+    queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.svg`);
+  }
+  else if (currentSelection === 1)
+  {
   queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.svg`);
+  }
+  else if (currentSelection === 3) {
+    queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][startCounter]}.png`);
+    if (startCounter === 0) {
+    slider.setAttribute("max", "79");
+    slider.value = 1;
+    sliderDisplay.innerHTML = 1;
+    sliderAmount = 1;
+    calculateWhenStoppedPackage.call(slider);
+    }
+    else {
+    slider.setAttribute("max", "64");
+    slider.value = 1;
+    sliderDisplay.innerHTML = 1;
+    sliderAmount = 1;
+    calculateWhenStoppedPackage.call(slider);
+    }
   }
   else
   {
@@ -322,16 +381,7 @@ function levelingFunctionStart() {
   sliderStartingDisplay.innerHTML = this.value;
   sliderStartingAmount = this.value;
 
-
-  if (sliderStartingAmount >= sliderAmount)
-  {
-
-    sliderAmount = parseInt(sliderStartingAmount) + 1;
-    slider.value = sliderAmount;
-    sliderDisplay.innerHTML = sliderAmount;
-  }
-
-  slider.setAttribute("min", (parseInt(sliderStartingAmount)+ 1));
+  slider.setAttribute("min", (parseInt(sliderStartingAmount)+ 1)) ;
 
 
   // if (sliderStartingAmount >= 90)
@@ -353,15 +403,22 @@ function levelingFunctionStart() {
 
 }
 
-let levelCount = 0;
-let levelXP = 0;
+let xpValueForStart = 0;
+let xpValueForEnd = 0;
+let xpTotal = 0;
+
+const xpPerMin = 74;
+const xpPerHour = (xpPerMin * 60);
+const xpPerDay = (xpPerHour * 8);
+const costPerHour = 12;
+const costPerMin = (costPerHour / 60);
 
 function levelingFunctionEnd() {
   sliderDisplay.innerHTML = this.value;
   sliderAmount = this.value;
 }
 
-let xpArray = [
+const xpArray = [
 ["350", "350", "0", "100"],
 ["8000", "1250", "10", "100"],
 ["26050", "2300", "20", "150"],
@@ -376,25 +433,231 @@ let xpArray = [
 
 function calculateLevelXP(sliderStartLevel, arrayVal)
 {
-  
+  let totalXp = parseInt(arrayVal[0]);
+  let levelXp = parseInt(arrayVal[1]);
+  let levelCount = (parseInt(sliderStartLevel) - parseInt(arrayVal[2]));
+  for (let i = 0; i < levelCount; i++) {
+    levelXp += parseInt(arrayVal[3]);
+    totalXp += levelXp;
+
+  }
+  return totalXp;
+}
+
+// startingXpValue = 778650;
+// levelXP = 25400;
+// levelCount = (parseInt(sliderStartingAmount) - 90);
+// for (let i = 0; i < levelCount; i++) {
+//   startingXpValue += levelXP;
+//   levelXP += 700;
+
+function calculateWhenStoppedPackage()
+{
+
+  if (sliderAmount >= 80)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[8]);
+  }
+  else if (sliderAmount >= 70)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[7]);
+  }
+  else if (sliderAmount >= 60)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[6]);
+  }
+  else if (sliderAmount >= 50)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[5]);
+  }
+  else if (sliderAmount >= 40)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[4]);
+  }
+  else if (sliderAmount >= 30)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[3]);
+  }
+  else if (sliderAmount >= 20)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[2]);
+  }
+  else if (sliderAmount >= 10)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[1]);
+  }
+  else if (sliderAmount >= 0)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[0]);
+  }
+  let packageCostPerHour = 12;
+  if (startCounter === 0)
+  {
+    xpTotal = (552550 - xpValueForEnd);
+    packageCostPerHour = 1450 / (552550 / xpPerHour);
+
+  }
+  else if (startCounter === 1)
+  {
+    xpTotal = (314550 - xpValueForEnd);
+    packageCostPerHour = 800 / (314550 / xpPerHour);
+  }
+
+  if (xpTotal >= xpPerDay)
+  {
+    estimatedTime.innerHTML = `${Math.round(xpTotal / xpPerDay)} days`;
+    priceAmount = ((xpTotal / xpPerHour) * packageCostPerHour).toFixed(2);
+  }
+  else if (xpTotal >= xpPerHour)
+  {
+    estimatedTime.innerHTML = `${Math.round(xpTotal / xpPerHour)} hours`;
+    priceAmount = ((xpTotal / xpPerHour) * packageCostPerHour).toFixed(2);
+  }
+  else
+  {
+    estimatedTime.innerHTML = `${Math.round(xpTotal / xpPerMin)} minutes`;
+    priceAmount = ((xpTotal / xpPerMin) * (packageCostPerHour/60)).toFixed(2);
+  }
+
+
+  startingPrice.innerHTML = `€${priceAmount}`;
+  //
+  // let discountDecimal = (currentDiscount * 0.01);
+  //
+  // let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
+
+  totalPrice.innerHTML =`€${priceAmount}`;
+
 }
 
 function calculateWhenStopped() {
+
+  if (parseInt(sliderStartingAmount) >= parseInt(sliderAmount))
+  {
+    sliderAmount = parseInt(sliderStartingAmount) + 1;
+    slider.value = sliderAmount;
+    sliderDisplay.innerHTML = sliderAmount;
+  }
+
+
   if (sliderStartingAmount >= 90)
   {
-    startingXpValue = 778650;
-    levelXP = 25400;
-    levelCount = (parseInt(sliderStartingAmount) - 90);
-    for (let i = 0; i < levelCount; i++) {
-      startingXpValue += levelXP;
-      levelXP += 700;
-    }
-
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[9]);
   }
   else if (sliderStartingAmount >= 80)
   {
-
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[8]);
   }
+  else if (sliderStartingAmount >= 70)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[7]);
+  }
+  else if (sliderStartingAmount >= 60)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[6]);
+  }
+  else if (sliderStartingAmount >= 50)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[5]);
+  }
+  else if (sliderStartingAmount >= 40)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[4]);
+  }
+  else if (sliderStartingAmount >= 30)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[3]);
+  }
+  else if (sliderStartingAmount >= 20)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[2]);
+  }
+  else if (sliderStartingAmount >= 10)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[1]);
+  }
+  else if (sliderStartingAmount >= 0)
+  {
+    xpValueForStart = calculateLevelXP(sliderStartingAmount, xpArray[0]);
+  }
+
+  if (sliderAmount >= 90)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[9]);
+  }
+  else if (sliderAmount >= 80)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[8]);
+  }
+  else if (sliderAmount >= 70)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[7]);
+  }
+  else if (sliderAmount >= 60)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[6]);
+  }
+  else if (sliderAmount >= 50)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[5]);
+  }
+  else if (sliderAmount >= 40)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[4]);
+  }
+  else if (sliderAmount >= 30)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[3]);
+  }
+  else if (sliderAmount >= 20)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[2]);
+  }
+  else if (sliderAmount >= 10)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[1]);
+  }
+  else if (sliderAmount >= 0)
+  {
+    xpValueForEnd = calculateLevelXP(sliderAmount, xpArray[0]);
+  }
+
+
+  // console.log(xpValueForStart);
+  // console.log(xpValueForEnd);
+
+  // xpValueForEnd - xpValueForStart * costPerXp
+
+  xpTotal = (xpValueForEnd - xpValueForStart);
+
+  if (xpTotal >= xpPerDay)
+  {
+    estimatedTime.innerHTML = `${Math.round(xpTotal / xpPerDay)} days`;
+    priceAmount = ((xpTotal / xpPerHour) * costPerHour).toFixed(2);
+  }
+  else if (xpTotal >= xpPerHour)
+  {
+    estimatedTime.innerHTML = `${Math.round(xpTotal / xpPerHour)} hours`;
+    priceAmount = ((xpTotal / xpPerHour) * costPerHour).toFixed(2);
+  }
+  else
+  {
+    estimatedTime.innerHTML = `${Math.round(xpTotal / xpPerMin)} minutes`;
+    priceAmount = ((xpTotal / xpPerMin) * costPerMin).toFixed(2);
+  }
+
+  startingPrice.innerHTML = `€${priceAmount}`;
+  //
+  // let discountDecimal = (currentDiscount * 0.01);
+  //
+  // let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
+
+  totalPrice.innerHTML =`€${priceAmount}`;
+
+
+
+
+
 }
 
 slider.oninput = winsFunction;
@@ -402,6 +665,7 @@ slider.oninput = winsFunction;
 
 
 selfPlaySwitch.addEventListener("input", () => {
+  if (startCounter === 1 && currentSelection === 0) {
   if (selfPlaySwitch.checked) {
     extrasIncrease += selfPlayValue;
     additionalCost.innerHTML = `+${extrasIncrease}%`;
@@ -464,13 +728,13 @@ selfPlaySwitch.addEventListener("input", () => {
 
     additionalCost.innerHTML = `+${extrasIncrease}%`;
   }
+}
 })
 
 
 pricesSelection.addEventListener("click", (event) => {
 
   if (event.target.tagName === "BUTTON") {
-    console.log("working");
     document.getElementById("buttonSelected").removeAttribute("id");
     event.target.setAttribute("id", "buttonSelected");
     let buttons = document.getElementsByClassName("selection");
@@ -481,7 +745,7 @@ pricesSelection.addEventListener("click", (event) => {
         valueType.firstElementChild.firstElementChild.innerHTML = field2Values[i];
         title.innerHTML = `<span>01</span> ${titleValues[i]}`
         currentSelection = i;
-
+        startCounter = 0;
         // Hiding previous Details and Showing the currently selected one
         let ulInformation = information.children;
 
@@ -494,29 +758,29 @@ pricesSelection.addEventListener("click", (event) => {
 
         }
 
+        sliderStartingRange.onchange = ""
+        slider.onchange = "";
+
+        startingPrice.innerHTML = `--`;
+        discountValue.innerHTML = `${baseDiscount}%`;
+        totalPrice.innerHTML = `--`;
+        estimatedTime.innerHTML = `--`;
+        additionalCost.innerHTML = '0%';
+
+        selfPlaySwitch.disabled = true;
+        selfPlaySwitch.checked = false;
+
+
+
         ulInformation[i].removeAttribute("class");
         //
-
-        if (i === 0) {
-          slider.oninput = winsFunction;
-        }
-
-        if (i === 1) {
-          slider.oninput = KDAFunction;
-        }
-
-        if (i === 4){
-          slider.oninput = challengeFunction;
-        }
-
-        if (i === 5) {
-          slider.oninput = coachingFunction;
-        }
 
 
         if (i === 2) {
           slider.oninput = levelingFunctionEnd;
           sliderStartingRange.oninput = levelingFunctionStart;
+          sliderStartingRange.onchange = calculateWhenStopped;
+          slider.onchange = calculateWhenStopped;
 
           sliderStarting.disabled = false;
           sliderStarting.style.display = "block";
@@ -528,8 +792,10 @@ pricesSelection.addEventListener("click", (event) => {
           slider.setAttribute("max", sliderAttribute[2]);
           slider.value = 50;
           sliderAmount = 50;
+          sliderStartingAmount = 1;
           sliderDisplay.innerHTML = slider.value;
 
+          calculateWhenStopped.call(slider);
         }
         else {
           sliderStarting.disabled = true;
@@ -538,6 +804,7 @@ pricesSelection.addEventListener("click", (event) => {
           slider.setAttribute("min", "1");
           slider.setAttribute("max", sliderAttribute[i]);
           slider.value = 1;
+          sliderAmount = 1;
           sliderDisplay.innerHTML = slider.value;
           queueTypeText.innerHTML = pictureOptions[currentSelection][0];
           if (currentSelection === 0 || currentSelection === 1) {
@@ -547,6 +814,32 @@ pricesSelection.addEventListener("click", (event) => {
           {
            queueTypeImage.setAttribute("src", `Icons/${pictureOptions[currentSelection][0]}.png`);
           }
+        }
+        if (i === 0) {
+          slider.oninput = winsFunction;
+          winsFunction.call(slider);
+
+        }
+        else if (i === 1)
+        {
+          slider.oninput = KDAFunction;
+          KDAFunction.call(slider);
+        }
+        else if (i === 3)
+        {
+          slider.oninput = levelingFunctionEnd;
+          slider.onchange = calculateWhenStoppedPackage;
+          calculateWhenStoppedPackage.call(slider);
+        }
+        else if (i === 4)
+        {
+          slider.oninput = challengeFunction;
+          challengeFunction.call(slider);
+        }
+
+        if (i === 5) {
+          slider.oninput = coachingFunction;
+          coachingFunction.call(slider);
         }
 
       }
