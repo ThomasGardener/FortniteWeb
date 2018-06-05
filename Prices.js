@@ -19,6 +19,9 @@ let sliderStartingRange = sliderStarting.firstElementChild;
 let sliderStartingDisplay = sliderStarting.lastElementChild;
 let title = queueType.parentNode.firstElementChild;
 let information = document.getElementById("whatYouGetInformation");
+let currencyValue = document.getElementById("currencyValue");
+
+
 
 
 
@@ -46,7 +49,74 @@ let pictureOptions = [queueTypeOptions, queueTypeOptions, "", packageTypeOptions
 
 let startCounter = 0;
 
+let convert = false;
+let convertVal = 1;
+let convertIcon = "€"
+const euroToGDP = 0.87;
+const euroToUSD = 1.17;
+const GDPIcon = '£';
+const USDIcon = '$';
+const EUROIcon = '€';
+let cachedStartValue = 0;
+let cachedEndValue = 0;
 
+
+currencyValue.onchange = function () {
+  if (currencyValue.value === "EURO")
+  {
+    convertVal = 1;
+    convertIcon = EUROIcon;
+    convertBothPrices();
+    convert = false;
+  }
+  else {
+    convert = true;
+    if (currencyValue.value === "GDP")
+    {
+      convertVal = euroToGDP;
+      convertIcon = GDPIcon;
+    }
+    else if (currencyValue.value === "USD")
+    {
+      convertVal = euroToUSD;
+      convertIcon = USDIcon;
+    }
+
+    convertBothPrices();
+
+  }
+
+
+};
+
+function convertBothPrices() {
+  startingPrice.innerHTML = `${convertIcon}${(cachedStartValue * convertVal).toFixed(2)}`;
+  totalPrice.innerHTML = `${convertIcon}${(cachedEndValue * convertVal).toFixed(2)}`;
+}
+
+function convertPrice(PriceF) {
+  cachedStartValue = PriceF;
+  if (convert)
+  {
+  startingPrice.innerHTML = `${convertIcon}${(PriceF * convertVal).toFixed(2)}`;
+  }
+  else
+  {
+  startingPrice.innerHTML = `€${PriceF}`;
+  }
+}
+
+function convertTotalPrice(totalPriceF) {
+  cachedEndValue = totalPriceF;
+  if (convert)
+  {
+    totalPrice.innerHTML = `${convertIcon}${(totalPriceF * convertVal).toFixed(2)}`;
+  }
+  else
+  {
+    totalPrice.innerHTML = `€${totalPriceF}`;
+  }
+}
 
 queueLeftArrow.addEventListener("click", () => {
 
@@ -147,10 +217,6 @@ const challengeCostEuro = 13;
 const coachCostEuro = 18;
 
 
-const euroToGDP = 0.87;
-const euroToUSD = 1.17;
-
-
 const discountAt5 = 5;
 const discountAt15= 10;
 const discountAt100 = 5;
@@ -172,11 +238,11 @@ let startingXpValue = 0;
 let endingXpValue = 7300;
 
 
-startingPrice.innerHTML = `${euroS} ${(winsCostEuro * sliderAmount)}`;
-discountValue.innerHTML = `-${baseDiscount}%`;
-totalPrice.innerHTML = `${euroS} ${(winsCostEuro * sliderAmount)}`;
-estimatedTime.innerHTML = `${totalTimeTaken} minutes`;
-additionalCost.innerHTML = '0%';
+// startingPrice.innerHTML = `${euroS} ${(winsCostEuro * sliderAmount)}`;
+// discountValue.innerHTML = `-${baseDiscount}%`;
+// totalPrice.innerHTML = `${euroS} ${(winsCostEuro * sliderAmount)}`;
+// estimatedTime.innerHTML = `${totalTimeTaken} minutes`;
+// additionalCost.innerHTML = '0%';
 
 
 
@@ -227,7 +293,8 @@ sliderDisplay.innerHTML = sliderAmount;
       estimatedTime.innerHTML = `${totalTimeTaken} minutes`;
     }
 
-    startingPrice.innerHTML = `€${priceAmount}`;
+    // startingPrice.innerHTML = `€${priceAmount}`;
+    convertPrice(priceAmount);
 
     if (extrasIncrease > 0)
     {
@@ -237,12 +304,14 @@ sliderDisplay.innerHTML = sliderAmount;
 
         let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-        totalPrice.innerHTML =`€${discountedTotal}`;
+        // totalPrice.innerHTML =`€${discountedTotal}`;
+        convertTotalPrice(discountedTotal);
 
       }
       else if (currentDiscount == extrasIncrease)
       {
-        totalPrice.innerHTML =`€${priceAmount}`
+        // totalPrice.innerHTML =`€${priceAmount}`
+        convertTotalPrice(priceAmount);
       }
       else
       {
@@ -250,7 +319,8 @@ sliderDisplay.innerHTML = sliderAmount;
 
         let discountedTotal = (priceAmount + (priceAmount * discountDecimal)).toFixed(2);
 
-        totalPrice.innerHTML =`€${discountedTotal}`;
+        // totalPrice.innerHTML =`€${discountedTotal}`;
+        convertTotalPrice(discountedTotal);
       }
     }
     else {
@@ -258,11 +328,15 @@ sliderDisplay.innerHTML = sliderAmount;
 
       let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-      totalPrice.innerHTML =`€${discountedTotal}`;
+      // totalPrice.innerHTML =`€${discountedTotal}`;
+      convertTotalPrice(discountedTotal);
+
     }
 
 
 }
+
+winsFunction.call(slider);
 
 function KDAFunction() {
   sliderDisplay.innerHTML = this.value;
@@ -305,13 +379,16 @@ function KDAFunction() {
     estimatedTime.innerHTML = `${totalTimeTaken} minutes`;
   }
 
-  startingPrice.innerHTML = `€${priceAmount}`;
+  // startingPrice.innerHTML = `€${priceAmount}`;
+  convertPrice(priceAmount);
 
   let discountDecimal = (currentDiscount * 0.01);
 
   let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-  totalPrice.innerHTML =`€${discountedTotal}`;
+  convertTotalPrice(discountedTotal);
+
+  // totalPrice.innerHTML =`€${discountedTotal}`;
 
 }
 
@@ -345,13 +422,16 @@ function challengeFunction() {
     estimatedTime.innerHTML = `${totalTimeTaken} minutes`;
   }
 
-  startingPrice.innerHTML = `€${priceAmount}`;
+  convertPrice(priceAmount);
+  // startingPrice.innerHTML = `€${priceAmount}`;
 
   let discountDecimal = (currentDiscount * 0.01);
 
   let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-  totalPrice.innerHTML =`€${discountedTotal}`;
+  convertTotalPrice(discountedTotal);
+
+  // totalPrice.innerHTML =`€${discountedTotal}`;
 
 }
 
@@ -366,13 +446,15 @@ function coachingFunction() {
 
   estimatedTime.innerHTML = `${sliderAmount} hours`;
 
-  startingPrice.innerHTML = `€${priceAmount}`;
+  // startingPrice.innerHTML = `€${priceAmount}`;
+  convertPrice(priceAmount);
 
   let discountDecimal = (currentDiscount * 0.01);
 
   let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-  totalPrice.innerHTML =`€${discountedTotal}`;
+  // totalPrice.innerHTML =`€${discountedTotal}`;
+  convertTotalPrice(discountedTotal);
 
 }
 
@@ -520,13 +602,15 @@ function calculateWhenStoppedPackage()
   }
 
 
-  startingPrice.innerHTML = `€${priceAmount}`;
+  // startingPrice.innerHTML = `€${priceAmount}`;
+  convertPrice(priceAmount);
   //
   // let discountDecimal = (currentDiscount * 0.01);
   //
   // let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-  totalPrice.innerHTML =`€${priceAmount}`;
+  // totalPrice.innerHTML =`€${priceAmount}`;
+  convertTotalPrice(priceAmount);
 
 }
 
@@ -646,13 +730,15 @@ function calculateWhenStopped() {
     priceAmount = ((xpTotal / xpPerMin) * costPerMin).toFixed(2);
   }
 
-  startingPrice.innerHTML = `€${priceAmount}`;
+  // startingPrice.innerHTML = `€${priceAmount}`;
+  convertPrice(priceAmount);
   //
   // let discountDecimal = (currentDiscount * 0.01);
   //
   // let discountedTotal = (priceAmount - (priceAmount * discountDecimal)).toFixed(2);
 
-  totalPrice.innerHTML =`€${priceAmount}`;
+  // totalPrice.innerHTML =`€${priceAmount}`;
+  convertTotalPrice(priceAmount);
 
 
 
@@ -677,12 +763,14 @@ selfPlaySwitch.addEventListener("input", () => {
         let discountedPrice = confirmSliderPrice * discountDecimal;
         let discountedTotal = (confirmSliderPrice + discountedPrice).toFixed(2);
 
-        totalPrice.innerHTML = `€${discountedTotal}`;
+        // totalPrice.innerHTML = `€${discountedTotal}`;
+        convertTotalPrice(discountedTotal);
     }
     else if ((extrasIncrease - currentDiscount) === 0) {
       let confirmSlider = slider.value;
         let confirmSliderPrice = (confirmSlider * winsCostEuro).toFixed(2);
-        totalPrice.innerHTML = `€${confirmSliderPrice}`;
+        // totalPrice.innerHTML = `€${confirmSliderPrice}`;
+        convertTotalPrice(confirmSliderPrice);
     }
     else {
       let discountDecimal = ((currentDiscount - extrasIncrease) * 0.01);
@@ -690,7 +778,8 @@ selfPlaySwitch.addEventListener("input", () => {
       let confirmSliderPrice = (confirmSlider * winsCostEuro);
       let discountedPrice = confirmSliderPrice * discountDecimal;
       let discountedTotal = (confirmSliderPrice - discountedPrice).toFixed(2);
-      totalPrice.innerHTML = `€${discountedTotal}`;
+      // totalPrice.innerHTML = `€${discountedTotal}`;
+      convertTotalPrice(discountedTotal);
     }
     // else
     // {
@@ -710,12 +799,14 @@ selfPlaySwitch.addEventListener("input", () => {
         let discountedPrice = confirmSliderPrice * discountDecimal;
         let discountedTotal = (confirmSliderPrice + discountedPrice).toFixed(2);
 
-        totalPrice.innerHTML = `€${discountedTotal}`;
+        // totalPrice.innerHTML = `€${discountedTotal}`;
+        convertTotalPrice(discountedTotal);
     }
     else if ((extrasIncrease - currentDiscount) === 0) {
       let confirmSlider = slider.value;
       let confirmSliderPrice = (confirmSlider * winsCostEuro).toFixed(2);
-      totalPrice.innerHTML = `€${confirmSliderPrice}`;
+      // totalPrice.innerHTML = `€${confirmSliderPrice}`;
+      convertTotalPrice(confirmSliderPrice);
     }
     else {
       let discountDecimal = ((currentDiscount - extrasIncrease) * 0.01);
@@ -723,7 +814,8 @@ selfPlaySwitch.addEventListener("input", () => {
       let confirmSliderPrice = (confirmSlider * winsCostEuro);
       let discountedPrice = confirmSliderPrice * discountDecimal;
       let discountedTotal = (confirmSliderPrice - discountedPrice).toFixed(2);
-      totalPrice.innerHTML = `€${discountedTotal}`;
+      // totalPrice.innerHTML = `€${discountedTotal}`;
+      convertTotalPrice(discountedTotal);
     }
 
     additionalCost.innerHTML = `+${extrasIncrease}%`;

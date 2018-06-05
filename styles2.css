@@ -1437,8 +1437,25 @@ button:focus {
   background-color: #fff;
   color: #C41A1A;
   font-weight: bold;
-  margin-top: 5px;
 }
+
+.purchase {
+  display: flex;
+}
+
+#currencyValue {
+  margin-left: auto;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #000;
+  color: #FFF;
+  padding-left: 5px;
+  border: none;
+  border-radius: 6px;
+}
+
+
 
 #purchaseContact {
   color: #C41A1A;
@@ -1538,7 +1555,6 @@ input[type="text"]
 #rangeSelection {
   display: none;
 }
-
 
 
 

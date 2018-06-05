@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Prices</title>
     <link href="styles2.css" rel="stylesheet">
-    
+
   </head>
   <body>
     <header class="mainheader">
@@ -98,6 +98,7 @@
             <div class="dicountFlex">
             <input type="text" placeholder="Enter code here"></input>
             <button class="discountButton">Apply</button>
+
             </div>
             </div>
 
@@ -157,7 +158,7 @@
           <div class="priceBorderGroup">
             <div class="summaryPrice">
             <span>Price: </span>
-            <span class="endFlex" id="summaryPrice">£35</span>
+            <span class="endFlex" id="summaryPrice"></span>
             </div>
             <div class="summaryDiscount">
             <span>Discount: </span>
@@ -181,6 +182,11 @@
             </div>
             <div class="purchase">
               <button><a id="purchaseContact" href="javascript:void(Tawk_API.toggle())">Contact Us</a></button>
+              <select id="currencyValue" name="currencyDrop">
+                <option value="EURO">€ EUR</option>
+                <option value="USD">$ USD</option>
+                <option value="GDP">£ GDP</option>
+              </select>
             </div>
           </div>
         </div>
